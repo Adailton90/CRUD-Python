@@ -23,9 +23,10 @@ def insert(values, table, fields=None):
     c.execute(query)
     con.commit()
 
+#criando uma variavel para poder usar no INSERT
 values = [
-    "default, 'joao pedro','2000-01-14', 'av das pedras, 123', 'Betim', 'MG', '12341567278'",
-    "default, 'Maria joana','2000-01-14', 'av das pedras, 123', 'Betim', 'MG', '12341567212'"
+    "default, 'Jonata Reis','2000-01-14', 'av das pedras, 123', 'Salvador', 'Ba', '12341567278'",
+    "default, 'Maria joana','1990-02-14', 'av das ACM, 10', 'Salvador', 'Ba', '12341567212'"
     ]
 def update(sets, table, where=None):
     global c, con
@@ -44,7 +45,13 @@ def delete(table, where):
     c.execute(query)
     con.commit()
 
-print(select("*", "alunos", "id_alunos=9"))
+#inserindo registro
+insert(values,"alunos")
+
+#selecionando todos itens da tabela alunos
+print(select("*", "alunos"))
+
+#deletando um registro da tabela e mostrando que foi deletado
 print(delete("alunos","id_alunos=9"))
 print(select("*", "alunos", "id_alunos=9"))
 
