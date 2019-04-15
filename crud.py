@@ -51,6 +51,10 @@ insert(values,"alunos")
 #selecionando todos itens da tabela alunos
 print(select("*", "alunos"))
 
+#realizando update 
+update({"nome":"Adailton Silva", "data_nascimento": "1990-09-28"},"alunos","id_alunos=14")
+print(select("*", "alunos", "id_alunos=14"))
+
 #deletando um registro da tabela e mostrando que foi deletado
 print(delete("alunos","id_alunos=9"))
 print(select("*", "alunos", "id_alunos=9"))
